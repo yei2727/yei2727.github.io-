@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Inventario de Laboratorio Químico</title>
+</head>
+<body>
+
+    <fieldset>
+        <legend>Registrar Producto</legend>
+        <form action="" method="post">
+            <label for="nombreProducto">Nombre del Producto:</label>
+            <select id="nombreProducto" name="nombreProducto" required>
+                <optgroup label="Sustancias Químicas Comunes">	 
+                    <option value="Ácido clorhídrico">Ácido clorhídrico (HCl)</option>
+                    <option value="Ácido sulfúrico">Ácido sulfúrico (H₂SO₄)</option>
+                    <option value="Hidróxido de sodio">Hidróxido de sodio (NaOH)</option>
+                    <option value="Nitrato de plata">Nitrato de plata (AgNO₃)</option>
+                    <option value="Permanganato de potasio">Permanganato de potasio (KMnO₄)</option>
+                    <option value="Amoniaco">Amoniaco (NH₃)</option>
+                    <option value="Etanol">Etanol (C₂H₅OH)</option>
+                    <option value="Cloroformo">Cloroformo (CHCl₃)</option>
+                    <option value="Acetona">Acetona (C₃H₆O)</option>
+                    <option value="Benceno">Benceno (C₆H₆)</option>
+                    <option value="Ácido acético">Ácido acético (CH₃COOH)</option>
+                    <option value="Hidróxido de calcio">Hidróxido de calcio (Ca(OH)₂)</option>
+                </optgroup>
+
+                <optgroup label="Sustancias Orgánicas">
+                    <option value="Glucosa">Glucosa (C₆H₁₂O₆)</option>
+                    <option value="Ácido cítrico">Ácido cítrico (C₆H₈O₇)</option>
+                    <option value="Metanol">Metanol (CH₃OH)</option>
+                    <option value="Acetato de etilo">Acetato de etilo (C₄H₈O₂)</option>
+                    <option value="Ácido fórmico">Ácido fórmico (HCOOH)</option>
+                </optgroup>
+
+                <optgroup label="Gases">
+                    <option value="Oxígeno">Oxígeno (O₂)</option>
+                    <option value="Dióxido de carbono">Dióxido de carbono (CO₂)</option>
+                    <option value="Nitrógeno">Nitrógeno (N₂)</option>
+                    <option value="Hidrógeno">Hidrógeno (H₂)</option>
+                    <option value="Argón">Argón (Ar)</option>
+                    <option value="Metano">Metano (CH₄)</option>
+                </optgroup>
+
+                <optgroup label="Materiales de laboratorio">
+                    <option value="Pipetas">Pipetas</option>
+                    <option value="Matraces Erlenmeyer">Matraces Erlenmeyer</option>
+                    <option value="Sondas graduadas">Sondas graduadas</option>
+                    <option value="Tubos de ensayo">Tubos de ensayo</option>
+                    <option value="Vidrio de reloj">Vidrio de reloj</option>
+                    <option value="Buretas">Buretas</option>
+                    <option value="Balances analíticos">Balances analíticos</option>
+                </optgroup>
+
+                <optgroup label="Soluciones y mezclas comunes">
+                    <option value="Solución salina">Solución salina (NaCl en agua)</option>
+                    <option value="Solución tampón de fosfato">Solución tampón de fosfato</option>
+                    <option value="Solución de azufre coloidal">Solución de azufre coloidal</option>
+                    <option value="Solución de hidróxido de amonio">Solución de hidróxido de amonio (NH₄OH)</option>
+                </optgroup>
+
+                <optgroup label="Productos de Limpieza y Seguridad">
+                    <option value="Alcohol desinfectante">Alcohol desinfectante (etanol 70%)</option>
+                    <option value="Solución de hipoclorito de sodio">Solución de hipoclorito de sodio (lejía)</option>
+                    <option value="Guantes de látex">Guantes de látex</option>
+                    <option value="Máscaras de seguridad">Máscaras de seguridad</option>
+                    <option value="Gafas de protección">Gafas de protección</option>
+                </optgroup>
+
+                <optgroup label="Otros productos">
+                    <option value="Agar para cultivo microbiológico">Agar para cultivo microbiológico</option>
+                    <option value="Calcio en polvo">Calcio en polvo (Ca)</option>
+                    <option value="Sulfato de cobre">Sulfato de cobre (CuSO₄)</option>
+                    <option value="Cloruro de sodio">Cloruro de sodio (NaCl)</option>
+                    <option value="Óxido de zinc">Óxido de zinc (ZnO)</option>
+                </optgroup>
+            </select><br><br>
+
+            <label for="tipoProducto">Tipo de Producto:</label>
+            <select id="tipoProducto" name="tipoProducto">
+                <option value="quimico">Sustancia Química</option>
+                <option value="organico">Sustancia Orgánica</option>
+                <option value="gas">Gas</option>
+                <option value="material">Material de Laboratorio</option>
+                <option value="solucion">Solución o Mezcla</option>
+                <option value="seguridad">Producto de Limpieza y Seguridad</option>
+                <option value="otros">Otros</option>
+            </select><br><br>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" required><br><br>
+
+            <label for="unidad">Unidad:</label>
+            <datalist id="unidades">
+                <option value="litros">
+                <option value="mililitros">
+                <option value="gramos">
+                <option value="miligramos">
+                <option value="kilogramos">
+            </datalist>
+            <input list="unidades" id="unidad" name="unidad" required><br><br>
+
+            <input type="submit" value="Registrar Producto">
+        </form>
+    </fieldset>
+
+    <!-- Tabla de inventario actual -->
+    <fieldset>
+        <legend>Inventario Actual</legend>
+        <table border="1" bgcolor="#F0F8FF">
+            <thead>
+                <tr>
+                    <th>Nombre del Producto</th>
+                    <th>Tipo</th>
+                    <th>Cantidad</th>
+                    <th>Unidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ácido clorhídrico</td>
+                    <td>Sustancia Química</td>
+                    <td>5</td>
+                    <td>litros</td>
+                    <td><button>Editar</button></td>
+                </tr>
+                <tr>
+                    <td>Etanol</td>
+                    <td>Sustancia Orgánica</td>
+                    <td>2</td>
+                    <td>litros</td>
+                    <td><button>Editar</button></td>
+                </tr>
+                <!-- Puedes agregar más productos aquí -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">Total de productos: 2</td>
+                </tr>
+            </tfoot>
+        </table>
+    </fieldset>
+
+    <!-- Resumen del inventario -->
+    <fieldset>
+        <legend>Resumen del Inventario</legend>
+        <p>Total de productos registrados: <b>2</b></p>
+        <p>Productos químicos: <b>1</b></p>
+        <p>Productos orgánicos: <b>1</b></p>
+        <!-- Más información de resumen -->
+    </fieldset>
+
+</body>
+</html>
